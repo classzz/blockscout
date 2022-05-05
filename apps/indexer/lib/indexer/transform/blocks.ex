@@ -51,7 +51,6 @@ defmodule Indexer.Transform.Blocks do
       block.gas_used,
       DateTime.to_unix(block.timestamp),
       decode(block.extra_data),
-      decode(block.mix_hash),
       decode(block.nonce)
     ]
 
