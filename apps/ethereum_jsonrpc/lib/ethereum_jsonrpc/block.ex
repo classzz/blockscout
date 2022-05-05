@@ -499,12 +499,12 @@ defmodule EthereumJSONRPC.Block do
       ]
 
   """
-  @spec elixir_to_uncles(elixir) :: Uncles.elixir()
-  def elixir_to_uncles(%{"hash" => nephew_hash, "uncles" => uncles}) do
-    uncles
-    |> Enum.with_index()
-    |> Enum.map(fn {uncle_hash, index} -> %{"hash" => uncle_hash, "nephewHash" => nephew_hash, "index" => index} end)
-  end
+  # @spec elixir_to_uncles(elixir) :: Uncles.elixir()
+  # def elixir_to_uncles(%{"hash" => nephew_hash, "uncles" => uncles}) do
+  #   uncles
+  #   |> Enum.with_index()
+  #   |> Enum.map(fn {uncle_hash, index} -> %{"hash" => uncle_hash, "nephewHash" => nephew_hash, "index" => index} end)
+  # end
 
   @doc """
   Decodes the stringly typed numerical fields to `t:non_neg_integer/0` and the timestamps to `t:DateTime.t/0`

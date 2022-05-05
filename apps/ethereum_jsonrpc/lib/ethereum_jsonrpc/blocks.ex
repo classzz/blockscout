@@ -43,7 +43,7 @@ defmodule EthereumJSONRPC.Blocks do
 
     elixir_blocks = to_elixir(blocks)
 
-    elixir_uncles = elixir_to_uncles(elixir_blocks)
+    # elixir_uncles = elixir_to_uncles(elixir_blocks)
     elixir_transactions = elixir_to_transactions(elixir_blocks)
 
     block_second_degree_relations_params = Uncles.elixir_to_params(elixir_uncles)
@@ -266,10 +266,10 @@ defmodule EthereumJSONRPC.Blocks do
       ]
 
   """
-  @spec elixir_to_uncles(elixir) :: Uncles.elixir()
-  def elixir_to_uncles(elixir) do
-    Enum.flat_map(elixir, &Block.elixir_to_uncles/1)
-  end
+  # @spec elixir_to_uncles(elixir) :: Uncles.elixir()
+  # def elixir_to_uncles(elixir) do
+  #   Enum.flat_map(elixir, &Block.elixir_to_uncles/1)
+  # end
 
   @doc """
   Decodes the stringly typed numerical fields to `t:non_neg_integer/0` and the timestamps to `t:DateTime.t/0`
