@@ -40,7 +40,6 @@ defmodule Indexer.Transform.Blocks do
   defp signature_hash(block) do
     header_data = [
       decode(block.parent_hash),
-      decode(block.sha3_uncles),
       decode(block.miner_hash),
       decode(block.state_root),
       decode(block.transactions_root),
