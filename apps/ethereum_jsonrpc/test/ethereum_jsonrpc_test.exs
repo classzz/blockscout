@@ -391,7 +391,6 @@ defmodule EthereumJSONRPCTest do
 
       assert {:ok,
               %EthereumJSONRPC.Blocks{
-                block_second_degree_relations_params: [],
                 blocks_params: [],
                 errors: [
                   %{
@@ -455,7 +454,6 @@ defmodule EthereumJSONRPCTest do
 
       assert {:ok,
               %EthereumJSONRPC.Blocks{
-                block_second_degree_relations_params: [],
                 blocks_params: [
                   %{
                     difficulty: 0,
@@ -535,7 +533,6 @@ defmodule EthereumJSONRPCTest do
 
       assert {:ok,
               %EthereumJSONRPC.Blocks{
-                block_second_degree_relations_params: [],
                 blocks_params: [%{}],
                 errors: [%{code: 404, data: %{number: 1}, message: "Not Found"}],
                 transactions_params: []

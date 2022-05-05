@@ -126,7 +126,6 @@ defmodule Indexer.Block.Fetcher do
            %Blocks{
              blocks_params: blocks_params,
              transactions_params: transactions_params_without_receipts,
-             block_second_degree_relations_params: block_second_degree_relations_params,
              errors: blocks_errors
            }}} <- {:blocks, EthereumJSONRPC.fetch_blocks_by_range(range, json_rpc_named_arguments)},
          blocks = TransformBlocks.transform_blocks(blocks_params),
@@ -174,7 +173,6 @@ defmodule Indexer.Block.Fetcher do
                address_coin_balances_daily: %{params: coin_balances_params_daily_set},
                address_token_balances: %{params: address_token_balances},
                blocks: %{params: blocks},
-               block_second_degree_relations: %{params: block_second_degree_relations_params},
                block_rewards: %{errors: beneficiaries_errors, params: beneficiaries_with_gas_payment},
                logs: %{params: logs},
                token_transfers: %{params: token_transfers},

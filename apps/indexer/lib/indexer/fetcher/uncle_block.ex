@@ -113,7 +113,6 @@ defmodule Indexer.Fetcher.UncleBlock do
         %Blocks{
           blocks_params: blocks_params,
           transactions_params: transactions_params,
-          block_second_degree_relations_params: block_second_degree_relations_params,
           errors: errors
         },
         block_fetcher,
@@ -124,7 +123,6 @@ defmodule Indexer.Fetcher.UncleBlock do
     case Block.Fetcher.import(block_fetcher, %{
            addresses: %{params: addresses_params},
            blocks: %{params: blocks_params},
-           block_second_degree_relations: %{params: block_second_degree_relations_params},
            transactions: %{params: transactions_params, on_conflict: :nothing}
          }) do
       {:ok, imported} ->

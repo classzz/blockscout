@@ -4,19 +4,17 @@ defmodule EthereumJSONRPC.Blocks do
   and [`eth_getBlockByNumber`](https://github.com/ethereum/wiki/wiki/JSON-RPC#eth_getblockbynumber) from batch requests.
   """
 
-  alias EthereumJSONRPC.{Block, Transactions, Transport, Uncles}
+  alias EthereumJSONRPC.{Block, Transactions, Transport}
 
   @type elixir :: [Block.elixir()]
   @type params :: [Block.params()]
   @type t :: %__MODULE__{
           blocks_params: [map()],
-          block_second_degree_relations_params: [map()],
           transactions_params: [map()],
           errors: [Transport.error()]
         }
 
   defstruct blocks_params: [],
-            block_second_degree_relations_params: [],
             transactions_params: [],
             errors: []
 
@@ -53,7 +51,6 @@ defmodule EthereumJSONRPC.Blocks do
     %__MODULE__{
       errors: errors,
       blocks_params: blocks_params,
-      block_second_degree_relations_params: block_second_degree_relations_params,
       transactions_params: transactions_params
     }
   end

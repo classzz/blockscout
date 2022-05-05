@@ -93,27 +93,6 @@ defmodule Indexer.Temporary.UnclesWithoutIndex do
 
   defp run_blocks(%Blocks{blocks_params: []}, original_entries), do: {:retry, original_entries}
 
-  defp run_blocks(
-         %Blocks{block_second_degree_relations_params: block_second_degree_relations_params, errors: errors},
-         original_entries
-       ) do
-    case Chain.import(%{block_second_degree_relations: %{params: block_second_degree_relations_params}}) do
-      {:ok, %{block_second_degree_relations: block_second_degree_relations}} ->
-        UncleBlock.async_fetch_blocks(block_second_degree_relations)
-        Uncles.update_from_second_degree_relations(block_second_degree_relations)
-
-        retry(errors)
-
-      {:error, step, failed_value, _changes_so_far} ->
-        Logger.error(fn -> ["failed to import: ", inspect(failed_value)] end,
-          step: step,
-          error_count: Enum.count(original_entries)
-        )
-
-        {:retry, original_entries}
-    end
-  end
-
   defp retry([]), do: :ok
 
   defp retry(errors) when is_list(errors) do
