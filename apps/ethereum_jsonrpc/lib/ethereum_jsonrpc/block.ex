@@ -6,7 +6,7 @@ defmodule EthereumJSONRPC.Block do
 
   import EthereumJSONRPC, only: [quantity_to_integer: 1, timestamp_to_datetime: 1]
 
-  alias EthereumJSONRPC.{Transactions}
+  alias EthereumJSONRPC.{Transactions, Uncles}
 
   @type elixir :: %{String.t() => non_neg_integer | DateTime.t() | String.t() | nil}
   @type params :: %{
@@ -22,11 +22,13 @@ defmodule EthereumJSONRPC.Block do
           number: non_neg_integer(),
           parent_hash: EthereumJSONRPC.hash(),
           receipts_root: EthereumJSONRPC.hash(),
+          sha3_uncles: EthereumJSONRPC.hash(),
           size: non_neg_integer(),
           state_root: EthereumJSONRPC.hash(),
           timestamp: DateTime.t(),
           total_difficulty: non_neg_integer(),
           transactions_root: EthereumJSONRPC.hash(),
+          uncles: [EthereumJSONRPC.hash()],
           base_fee_per_gas: non_neg_integer()
         }
 
@@ -203,11 +205,13 @@ defmodule EthereumJSONRPC.Block do
           "number" => number,
           "parentHash" => parent_hash,
           "receiptsRoot" => receipts_root,
+          "sha3Uncles" => sha3_uncles,
           "size" => size,
           "stateRoot" => state_root,
           "timestamp" => timestamp,
           "totalDifficulty" => total_difficulty,
           "transactionsRoot" => transactions_root,
+          "uncles" => uncles,
           "baseFeePerGas" => base_fee_per_gas
         } = elixir
       ) do
@@ -224,11 +228,13 @@ defmodule EthereumJSONRPC.Block do
       number: number,
       parent_hash: parent_hash,
       receipts_root: receipts_root,
+      sha3_uncles: sha3_uncles,
       size: size,
       state_root: state_root,
       timestamp: timestamp,
       total_difficulty: total_difficulty,
       transactions_root: transactions_root,
+      uncles: uncles,
       base_fee_per_gas: base_fee_per_gas
     }
   end
@@ -245,10 +251,12 @@ defmodule EthereumJSONRPC.Block do
           "number" => number,
           "parentHash" => parent_hash,
           "receiptsRoot" => receipts_root,
+          "sha3Uncles" => sha3_uncles,
           "size" => size,
           "stateRoot" => state_root,
           "timestamp" => timestamp,
           "transactionsRoot" => transactions_root,
+          "uncles" => uncles,
           "baseFeePerGas" => base_fee_per_gas
         } = elixir
       ) do
@@ -265,10 +273,12 @@ defmodule EthereumJSONRPC.Block do
       number: number,
       parent_hash: parent_hash,
       receipts_root: receipts_root,
+      sha3_uncles: sha3_uncles,
       size: size,
       state_root: state_root,
       timestamp: timestamp,
       transactions_root: transactions_root,
+      uncles: uncles,
       base_fee_per_gas: base_fee_per_gas
     }
   end
@@ -285,11 +295,13 @@ defmodule EthereumJSONRPC.Block do
           "number" => number,
           "parentHash" => parent_hash,
           "receiptsRoot" => receipts_root,
+          "sha3Uncles" => sha3_uncles,
           "size" => size,
           "stateRoot" => state_root,
           "timestamp" => timestamp,
           "totalDifficulty" => total_difficulty,
           "transactionsRoot" => transactions_root,
+          "uncles" => uncles
         } = elixir
       ) do
     %{
@@ -305,11 +317,13 @@ defmodule EthereumJSONRPC.Block do
       number: number,
       parent_hash: parent_hash,
       receipts_root: receipts_root,
+      sha3_uncles: sha3_uncles,
       size: size,
       state_root: state_root,
       timestamp: timestamp,
       total_difficulty: total_difficulty,
       transactions_root: transactions_root,
+      uncles: uncles
     }
   end
 
@@ -326,10 +340,12 @@ defmodule EthereumJSONRPC.Block do
           "number" => number,
           "parentHash" => parent_hash,
           "receiptsRoot" => receipts_root,
+          "sha3Uncles" => sha3_uncles,
           "size" => size,
           "stateRoot" => state_root,
           "timestamp" => timestamp,
           "transactionsRoot" => transactions_root,
+          "uncles" => uncles
         } = elixir
       ) do
     %{
@@ -345,10 +361,12 @@ defmodule EthereumJSONRPC.Block do
       number: number,
       parent_hash: parent_hash,
       receipts_root: receipts_root,
+      sha3_uncles: sha3_uncles,
       size: size,
       state_root: state_root,
       timestamp: timestamp,
       transactions_root: transactions_root,
+      uncles: uncles
     }
   end
 
