@@ -18,14 +18,7 @@ defmodule Indexer.Transform.AddressCoinBalancesTest do
       assert %{address_hash: miner_hash, block_number: block_number}
     end
 
-    test "with block second degree relations extracts nothing" do
-      params_set =
-        AddressCoinBalances.params_set(%{
-          block_second_degree_relations_params: [%{nephew_hash: Factory.block_hash(), uncle_hash: Factory.block_hash()}]
-        })
 
-      assert MapSet.size(params_set) == 0
-    end
 
     test "with call internal transaction extracts nothing" do
       internal_transaction_params =
