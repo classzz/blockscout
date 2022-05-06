@@ -7,10 +7,10 @@ defmodule BlockScoutWeb.LayoutView do
 
   import BlockScoutWeb.AddressView, only: [from_address_hash: 1]
 
-  @issue_url "https://github.com/blockscout/blockscout/issues/new"
+  @issue_url "https://github.com/classzz/blockscout/issues/new"
   @default_other_networks [
     %{
-      title: "Classzz",
+      title: "ClassZZ",
       url: "https://classzz.com/"
     }
   ]
@@ -100,7 +100,7 @@ defmodule BlockScoutWeb.LayoutView do
           nil
 
         release_link_env_var == "" || release_link_env_var == nil ->
-          "https://github.com/blockscout/blockscout/releases/tag/" <> version
+          "https://github.com/classzz/blockscout/releases/tag/" <> version
 
         true ->
           release_link_env_var
